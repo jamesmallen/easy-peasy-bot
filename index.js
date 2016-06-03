@@ -81,12 +81,26 @@ controller.on('rtm_close', function (bot) {
  */
 // BEGIN EDITING HERE!
 
-controller.on('bot_channel_join', function (bot, message) {
-    bot.reply(message, "I'm here!")
+controller.hears(['tom', 'riddle', 'voldemort'], 'direct_message', function (bot, message) {
+    bot.reply(message, "If he tries to enroll, please go ahead and let him, but display a message on the screen saying `RED ALERT!!! HE WHO MUST NOT BE NAMED!!!`");
 });
 
-controller.hears('hello', 'direct_message', function (bot, message) {
-    bot.reply(message, 'Hello!');
+controller.hears(['tom', 'riddle', 'voldemort'], 'direct_mention', function (bot, message) {
+    bot.reply(message, "Oh, dear, don't ask me about that in a public channel. Please send me a direct message instead!");
+});
+
+controller.hears('', 'direct_mention,direct_message', function (bot, message) {
+    var responsePossibilities = [
+        "Why don't you confer with Mr. Finnigan? As I recall, he has a particular proclivity for pyrotechnics.",
+        "Do nothing? Offer him up as bait? Potter is a boy! Not a piece of meat!",
+        "I've always wanted to use that spell.",
+        "We teachers are rather good at magic, you know.",
+        "Don’t tell me what I can and can’t do, Potter.",
+        "Move along now.",
+        "Ten thousand points to Gryffindor!",
+    ];
+    var response = responsePossibilities[Math.floor(Math.random() * responsePossibilities.length)];
+    bot.reply(message, response);
 });
 
 
