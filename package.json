@@ -25,7 +25,8 @@
     "node": "5.1.1"
   },
   "dependencies": {
-    "botkit": "0.0.5",
+    "@ponko2/botkit-heroku-keepalive": "^0.7.2",
+    "botkit": "0.1.2",
     "botkit-storage-mongo": "^1.0.2",
     "mongodb": "^1.4.39"
   }
