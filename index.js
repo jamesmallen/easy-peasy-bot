@@ -3,6 +3,28 @@
  */
 
 
+var mcgonagallQuotes = [
+    "Potter, take Weasley with you. He looks far too happy over there.",
+    "Why is it, when something happens, it is always you three?",
+    "Mr. Davis! Mr. Davis, that is the girls' lavatory.",
+    "Why don't you confer with Mr. Finnigan? As I recall, he has a particular proclivity for pyrotechnics.",
+    "Do nothing? Offer him up as bait? Potter is a boy! Not a piece of meat!",
+    "I've always wanted to use that spell.",
+    "We teachers are rather good at magic, you know.",
+    "Don’t tell me what I can and can’t do, Potter.",
+    "Move along now.",
+    "Ten thousand points to Gryffindor!",
+    "Mraow!",
+    "Five points... will be awarded to each of you. For sheer dumb luck.",
+    "Perhaps it would be more useful if I were to transfigure Mr Potter and yourself into a pocket watch? That way, one of you might be on time.",
+    "This boy will be famous. There won't be a child in our world who doesn't know his name.",
+    "Alastor, we never use transfiguration as a punishment. Surely Dumbledore told you that?",
+    "The house of Godric Gryffindor has commanded the respect of the wizarding world for nearly ten centuries. I will not have you, in one night, besmirching that name by behaving like a babbling, bumbling band of baboons!",
+    "Inside every girl is a swan, waiting to burst out in flight.",
+];
+
+
+
 /**
  * Define a function for initiating a conversation on installation
  * With custom integrations, we don't have a way to find out who installed us, so we can't message them :(
@@ -90,15 +112,7 @@ controller.hears(['tom', 'riddle', 'voldemort'], 'direct_mention', function (bot
 });
 
 controller.hears('', 'direct_mention,direct_message', function (bot, message) {
-    var responsePossibilities = [
-        "Why don't you confer with Mr. Finnigan? As I recall, he has a particular proclivity for pyrotechnics.",
-        "Do nothing? Offer him up as bait? Potter is a boy! Not a piece of meat!",
-        "I've always wanted to use that spell.",
-        "We teachers are rather good at magic, you know.",
-        "Don’t tell me what I can and can’t do, Potter.",
-        "Move along now.",
-        "Ten thousand points to Gryffindor!",
-    ];
+    var responsePossibilities = mcgonagallQuotes;
     var response = responsePossibilities[Math.floor(Math.random() * responsePossibilities.length)];
     bot.reply(message, response);
 });
